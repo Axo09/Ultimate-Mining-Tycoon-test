@@ -886,24 +886,30 @@ while true do
                     end
                 end
             end
--- Button Plot Teleport
-            if Plot_Teleport.Visible and mPos.X >= Plot_Teleport.Position.X and mPos.X <= Plot_Teleport.Position.X + Plot_Teleport.Size.X and mPos.Y >= Plot_Teleport.Position.Y and mPos.Y <= Plot_Teleport.Position.Y + Plot_Teleport.Size.Y then
-                pcall(function() 
-                    teleportToPlot() 
-                end)
-            end-- Button Shop Teleport
-            if Shop_Teleport.Visible and mPos.X >= Shop_Teleport.Position.X and mPos.X <= Shop_Teleport.Position.X + Shop_Teleport.Size.X and mPos.Y >= Shop_Teleport.Position.Y and mPos.Y <= Shop_Teleport.Position.Y + Shop_Teleport.Size.Y then
-                pcall(function() 
-                    teleportTo(Vector3.new(-1550, 10, 20)) 
-                end)
-            end
--- Button Mine Teleport
-            if Mine_Teleport.Visible and mPos.X >= Mine_Teleport.Position.X and mPos.X <= Mine_Teleport.Position.X + Mine_Teleport.Size.X and mPos.Y >= Mine_Teleport.Position.Y and mPos.Y <= Mine_Teleport.Position.Y + Mine_Teleport.Size.Y then
-                pcall(function() 
-                    -- Aquí llamamos a la función que te di al inicio
-                    teleportTo(Vector3.new(-1889, 7, -193)) 
-                end)
-            end
+-- ==========================================================
+-- SECCIÓN DE DETECCIÓN DE CLICS (Dentro del while true do)
+-- ==========================================================
+
+-- 1. Botón para ir al Plot (Tu Parcela)
+if Plot_Teleport.Visible and mPos.X >= Plot_Teleport.Position.X and mPos.X <= Plot_Teleport.Position.X + Plot_Teleport.Size.X and mPos.Y >= Plot_Teleport.Position.Y and mPos.Y <= Plot_Teleport.Position.Y + Plot_Teleport.Size.Y then
+    pcall(function() 
+        teleportToPlot() -- Esta función busca tu PlotId automáticamente
+    end)
+end
+
+-- 2. Botón para ir a la Tienda (Shop)
+if Shop_Teleport.Visible and mPos.X >= Shop_Teleport.Position.X and mPos.X <= Shop_Teleport.Position.X + Shop_Teleport.Size.X and mPos.Y >= Shop_Teleport.Position.Y and mPos.Y <= Shop_Teleport.Position.Y + Shop_Teleport.Size.Y then
+    pcall(function() 
+        teleportTo(Vector3.new(-1550, 10, 20)) 
+    end)
+end
+
+-- 3. Botón para ir a la Mina (Mine)
+if Mine_Teleport.Visible and mPos.X >= Mine_Teleport.Position.X and mPos.X <= Mine_Teleport.Position.X + Mine_Teleport.Size.X and mPos.Y >= Mine_Teleport.Position.Y and mPos.Y <= Mine_Teleport.Position.Y + Mine_Teleport.Size.Y then
+    pcall(function() 
+        teleportTo(Vector3.new(-1889, 7, -193)) 
+    end)
+end
             -- Button Keybind To Hide
             if Keybind To Hide.Visible and mPos.X >= Keybind To Hide.Position.X and mPos.X <= Keybind To Hide.Position.X + Keybind To Hide.Size.X and
                mPos.Y >= Keybind To Hide.Position.Y and mPos.Y <= Keybind To Hide.Position.Y + Keybind To Hide.Size.Y then
